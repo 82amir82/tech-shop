@@ -1,0 +1,141 @@
+.parentfeature{
+    width: 95%;
+    height: 100px;
+    display: flex;
+    border: none;
+    justify-content: space-between;
+        /* background-color: red; */
+    margin: 20px auto;
+}
+.dsupport{
+    width: 23%;
+    height: 100%;
+    border: none;
+    box-shadow: 1px 1px 10px rgb(233, 232, 232);
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+.dsupport svg {
+    width: 50px;
+    height: 50px;
+    color: blue;
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    border-radius: 100%;
+}
+.dsupport div {
+    text-align: center;
+    
+}
+.dsupport div h6 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+
+.dPayment{
+    width: 23%;
+    height: 100%;
+    border: none;
+    box-shadow: 1px 1px 10px rgb(233, 232, 232);
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+.dPayment svg{
+    width: 50px;
+    height: 50px;
+    color: blue;
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    border-radius: 100%;
+}
+.dPayment div{
+    text-align: center;
+}
+.dPayment div h6 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+
+.dWarranty{
+    width: 23%;
+    height: 100%;
+    border: none;
+    box-shadow: 1px 1px 10px rgb(233, 232, 232);
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+}
+.dWarranty svg{
+    width: 50px;
+    height: 50px;
+    color: blue;
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    border-radius: 100%;
+}
+.dWarranty div{
+    text-align: center;
+}
+.dWarranty div h6{
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+
+.dpost{
+    width: 23%;
+    height: 100%;
+    border: none;
+    box-shadow: 1px 1px 10px rgb(233, 232, 232);
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;   
+}
+.dpost svg{
+    width: 50px;
+    height: 50px;
+    color: blue;
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+    border-radius: 100%;
+}
+.dpost div{
+    text-align: center;
+}
+.dpost div h6{
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+.headertakhfif{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 40px;
+}
+.headertakhfif a{
+    text-decoration: none;
+    color: blue;
+    font-size: 22px;
+}
+.dtakhfif{
+    width: 100%;
+    height: 510px;
+    justify-content: space-between;
+    padding: 10px 60px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    /* background-color: red; */
+
+}

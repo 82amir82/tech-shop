@@ -1,0 +1,108 @@
+.parent{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border:1px solid rgb(221, 220, 220);
+}
+.topdiv{
+    width: 100%;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    gap:100px;   
+}
+.dlogo{
+    width: 15%;
+    height: auto;
+    margin-right: 30px;
+    margin-top: 30px ;
+}
+.dsearch{
+     width: 45%;
+    height: 35%;
+    background-color: rgb(237, 237, 238);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 1px 1px 10px rgb(231, 230, 230);
+    border-radius: 10px;
+    
+}
+.dsearch input{
+    width: 80%;
+    height: 20%;
+    padding: 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 20px;
+    font-family: shabnam;
+}
+.iconsearch{
+    width: 15%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 25px;
+
+}
+.dicon{
+     width: 20%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.iconprofile{
+    font-size: 35px;
+    display: flex;    
+}
+
+.iconcart{
+    font-size: 35px;
+    color: blue;
+}
+
+.diconuser{
+    display: flex;
+    align-items: center;
+}
+.diconuser p{
+    margin: 10px;
+}
+.bottomdiv{
+    width: 60%;
+    height: 30px;
+    display: flex;
+    gap: 133px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.bottomdiv a{
+    font-size: 15px;
+    text-decoration: none;
+    color: inherit;
+
+}
+.bottomdiv a:hover{
+    color: blue;
+    cursor: pointer;
+
+}
+.bottomdiv button{
+    font-size: 15px;
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    background-color: inherit;
+    font-family: shabnam;
+    
+}
+.bottomdiv button:hover{
+    color: blue;
+    cursor: pointer;
+
+}

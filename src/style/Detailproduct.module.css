@@ -1,0 +1,292 @@
+.topdiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 20px;
+}
+.productpic {
+  width: 50%;
+  height: 600px;
+  display: flex;
+  margin-left: 30px;
+}
+.largpic {
+  width: 70%;
+  height: 100%;
+}
+.largpic img {
+  width: 100%;
+  height: 100%;
+}
+.smallpic {
+  width: 28%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.smallpic img {
+  width: 80%;
+  height: 15%;
+}
+.productdetail {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+.productdetail h1 {
+  margin: 40px 0px;
+}
+
+.dDiscount {
+  width: 60px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+  font-size: 25px;
+  border-radius: 5px;
+}
+.dprice {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0px;
+}
+.dprice h6 {
+  font-size: 30px;
+  color: rgb(11, 182, 11);
+}
+.dprice p {
+  font-size: 28px;
+  text-decoration: line-through;
+}
+.dinformation p {
+  font-size: 24px;
+  margin: 15px 0px;
+  color: rgb(67, 67, 67);
+}
+.dexist {
+  font-size: 24px;
+  color: rgb(11, 182, 11);
+}
+.dnotexist {
+  font-size: 24px;
+  color: red;
+}
+.dbuy {
+  width: 50%;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+  /* background-color: red; */
+}
+.dlikef,
+.dliket {
+  width: 12%;
+  height: 100%;
+  border: 1px solid rgb(193, 191, 191);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.dlikef svg {
+  font-size: 40px;
+  color:blue;
+}
+.dliket{
+  font-size: 30px;
+  color:red;
+}
+.buttonbuy {
+  width: 50%;
+  height: 100%;
+  background-color: blue;
+  color: white;
+  font-family: shabnam;
+  font-size: 25px;
+  border: none;
+  border-radius: 10px;
+}
+.dplus,
+.dmines,
+.dtrash{
+  width: 25%;
+  height: 100%;
+  border: 1px solid rgb(193, 191, 191);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; 
+  margin: 0 20px;
+}
+.dplus ,
+.dmines,
+.dtrash svg{
+  font-size: 28px;
+  color: blue;
+}
+.numbers{
+   width: 18%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; 
+}
+.numbers p{
+  font-size: 24px;
+}
+.productnumbers {
+  
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content:space-between;
+}
+.middelmdiv {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.parentfeature {
+  width: 95%;
+  height: 80px;
+  border: 1px solid rgb(193, 191, 191);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 50px 0;
+}
+.dsupport {
+  width: 22%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dsupport svg {
+  font-size: 40px;
+  margin-left: 20px;
+  color: blue;
+}
+.dsupport h6 {
+  font-size: 20px;
+}
+.dPayment {
+  width: 22%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dPayment svg {
+  font-size: 40px;
+  margin-left: 20px;
+  color: blue;
+}
+.dPayment h6 {
+  font-size: 20px;
+}
+.dWarranty {
+  width: 22%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dWarranty svg {
+  font-size: 40px;
+  margin-left: 20px;
+  color: blue;
+}
+.dWarranty h6 {
+  font-size: 20px;
+}
+.dpost {
+  width: 22%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dpost svg {
+  font-size: 40px;
+  margin-left: 20px;
+  color: blue;
+}
+.dpost h6 {
+  font-size: 20px;
+}
+.menudescription {
+  width: 50%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menudescription div {
+  width: 32%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menudescription h6 {
+  font-size: 20px;
+}
+.buttomdiv {
+  width: 95%;
+  border: 1px solid rgb(193, 191, 191);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.viwe {
+  background-color: rgb(233, 233, 233);
+  border-bottom: 2px solid blue;
+}
+.viwe h6 {
+  color: blue;
+}
+.dDescription {
+  width: 100%;
+  height: 150px;
+  padding: 15px;
+  border-top: 1px solid rgb(193, 191, 191);
+}
+.dDescription p {
+  font-size: 18px;
+}
+.dSpecifications{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dSpecifications table{
+  width: 90%;
+  background-color: blue;
+  display: flex;
+
+}
+.dSpecifications td :first-child{
+  width: 50%;
+  height: 50px;
+}
+.dSpecifications tr:nth-child(odd){
+  background-color: rgb(214, 211, 211);
+}
+.dSpecifications th {
+  width: 50%;
+  border:1px solid rgb(193, 191, 191);
+}
