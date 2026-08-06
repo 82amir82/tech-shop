@@ -8,6 +8,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { useBasket } from "../condex/Basketcondex";
+import Cart from "../pages/Cart";
 
 //-------------------------------------------
 
@@ -16,6 +17,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [state, dispatch] = useBasket();
   const { countall } = state;
+  const [opencart,setOpencart]=useState(false);
   // console.log(countall);
 
   //----------------------------------------------
@@ -37,7 +39,15 @@ const Header = () => {
     }
     navigate(`/product?${param.toString()}`);
   };
+  useEffect(() => {
+  if (opencart) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
+});
   return (
+    <>
     <div className={style.parent}>
       <div className={style.topdiv}>
         <div className={style.dlogo}>
@@ -54,7 +64,7 @@ const Header = () => {
             <p>امیرحسین خودکامه</p>
             <BsPersonCircle className={style.iconprofile} />
           </div>
-          <div className={style.iconcart}>
+          <div className={style.iconcart} onClick={()=>setOpencart(!opencart)}>
             <MdOutlineShoppingCart />
             {countall>0 && <div className={style.tedadproduct}>{countall}</div>}
           </div>
@@ -68,6 +78,8 @@ const Header = () => {
         <button onClick={() => changecategory("pc")}>لوازم کامپیوتر</button>
       </div>
     </div>
+    {opencart && <Cart opencart={opencart} setOpencart={setOpencart}/>}
+    </>
   );
 };
 
