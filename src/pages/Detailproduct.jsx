@@ -49,10 +49,10 @@ const Detailproduct = () => {
 
   const [state, dispatch] = useBasket();
   // console.log(dispatch);
-  console.log(state);
+  // console.log(state);
   //--------------------------------------
   const tedad = func_count(state, ProductID);
-  console.log(tedad);
+  // console.log(tedad);
   // console.log(params.id);
   //--------------------------------------
   useEffect(() => {

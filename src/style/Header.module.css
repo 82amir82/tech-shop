@@ -60,12 +60,27 @@
     font-size: 35px;
     display: flex;    
 }
-
 .iconcart{
+    position: relative;
+}
+.iconcart svg{
+
     font-size: 35px;
     color: blue;
 }
-
+.tedadproduct{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background-color: red;
+    color: white;
+    border-radius: 6px;
+    right: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 .diconuser{
     display: flex;
     align-items: center;

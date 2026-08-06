@@ -6,13 +6,18 @@ import logo from "../assets/pic/logo.jpeg";
 import { IoSearchSharp } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { Link, useSearchParams , useNavigate } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { useBasket } from "../condex/Basketcondex";
 
 //-------------------------------------------
 
 const Header = () => {
   const [searchparams, setSearchparams] = useSearchParams();
   const navigate = useNavigate();
+  const [state, dispatch] = useBasket();
+  const { countall } = state;
+  // console.log(countall);
+
   //----------------------------------------------
   const changecategory = (category) => {
     const scategory = searchparams.get("category");
@@ -25,13 +30,12 @@ const Header = () => {
       param.delete("maxprice");
       param.delete("sort");
     }
-    if(category){
-    param.set("category",category);
-    }
-    else{
+    if (category) {
+      param.set("category", category);
+    } else {
       param.delete("category");
     }
-    navigate(`/product?${param.toString()}`)
+    navigate(`/product?${param.toString()}`);
   };
   return (
     <div className={style.parent}>
@@ -50,15 +54,18 @@ const Header = () => {
             <p>امیرحسین خودکامه</p>
             <BsPersonCircle className={style.iconprofile} />
           </div>
-          <MdOutlineShoppingCart className={style.iconcart} />
+          <div className={style.iconcart}>
+            <MdOutlineShoppingCart />
+            {countall>0 && <div className={style.tedadproduct}>{countall}</div>}
+          </div>
         </div>
       </div>
       <div className={style.bottomdiv}>
         <Link to="/home">صفحه اصلی</Link>
-        <button onClick={()=>changecategory("")}>فروشگاه</button>
-        <button onClick={()=>changecategory("laptop")}>لپتاپ</button>
-        <button onClick={()=>changecategory("mobile")}>موبایل</button>
-        <button onClick={()=>changecategory("pc")}>لوازم کامپیوتر</button>
+        <button onClick={() => changecategory("")}>فروشگاه</button>
+        <button onClick={() => changecategory("laptop")}>لپتاپ</button>
+        <button onClick={() => changecategory("mobile")}>موبایل</button>
+        <button onClick={() => changecategory("pc")}>لوازم کامپیوتر</button>
       </div>
     </div>
   );
