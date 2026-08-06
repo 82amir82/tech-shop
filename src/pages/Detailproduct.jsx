@@ -90,9 +90,11 @@ const Detailproduct = () => {
           </div>
           <div>
             <div className={style.dprice}>
-              <div className={style.dDiscount}>
-                <h5>{Discount && Discount}%</h5>
-              </div>
+              {Discount > 0 && (
+                <div className={style.dDiscount}>
+                  <h5> {Discount}%</h5>
+                </div>
+              )}
               <h6> {newprice} تومان</h6>
               <p>{Price} تومان</p>
             </div>

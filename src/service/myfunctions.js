@@ -25,8 +25,9 @@ const func_plus =(list,id)=>{
     return y
 }
 const func_minus =(list,id)=>{
-    const y = list.map(item=>item.ProductID == id ? {...item , count : item.count-1} : item)
-    return y
+    const y = list.map(item=>item.ProductID == id ? {...item , count : item.count-1} : item);
+    const x = y.filter(item=>item.count!=0);
+    return x
 }
 const func_delete =(list,id)=>{
     const y = list.filter(item=>item.ProductID != id )

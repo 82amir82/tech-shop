@@ -37,24 +37,24 @@ const reducer = (state, action) => {
       return {
         listbasket: x,
         statebasket: false,
-        total: func_total(state.listbasket),
-        countall: func_countall(state.listbasket),
+        total: func_total(x),
+        countall: func_countall(x),
       };
     case "minus":
       const y = func_minus(state.listbasket, action.payload);
       return {
         listbasket: y,
         statebasket: false,
-        total: func_total(state.listbasket),
-        countall: func_countall(state.listbasket),
+        total: func_total(y),
+        countall: func_countall(y),
       };
     case "delete":
       const z = func_delete(state.listbasket, action.payload);
       return {
         listbasket: z,
         statebasket: false,
-        total: func_total(state.listbasket),
-        countall: func_countall(state.listbasket),
+        total: func_total(z),
+        countall: func_countall(z),
       };
   }
 };
