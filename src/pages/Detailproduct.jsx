@@ -249,11 +249,11 @@ const Detailproduct = () => {
                     <td> {Brand}</td>
                   </tr>
                   <tr>
-                    <td>پردازنده</td>
+                    <th>پردازنده</th>
                     <td>{CPU}</td>
                   </tr>
                   <tr>
-                    <td>حافظه رم</td>
+                    <th>حافظه رم</th>
                     <td>{RAM}</td>
                   </tr>
                 </tbody>

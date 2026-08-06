@@ -99,11 +99,11 @@
 
 .dlikef svg {
   font-size: 40px;
-  color:blue;
+  color: blue;
 }
-.dliket{
+.dliket {
   font-size: 30px;
-  color:red;
+  color: red;
 }
 .buttonbuy {
   width: 50%;
@@ -117,39 +117,38 @@
 }
 .dplus,
 .dmines,
-.dtrash{
+.dtrash {
   width: 25%;
   height: 100%;
   border: 1px solid rgb(193, 191, 191);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px; 
+  border-radius: 10px;
   margin: 0 20px;
 }
-.dplus ,
+.dplus,
 .dmines,
-.dtrash svg{
+.dtrash svg {
   font-size: 28px;
   color: blue;
 }
-.numbers{
-   width: 18%;
+.numbers {
+  width: 18%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
-.numbers p{
+.numbers p {
   font-size: 24px;
 }
 .productnumbers {
-  
   width: 50%;
   height: 100%;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 .middelmdiv {
   width: 100%;
@@ -266,27 +265,40 @@
 .dDescription p {
   font-size: 18px;
 }
-.dSpecifications{
-  width: 100%;
+.dSpecifications {
+  width: 95%;
   height: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  overflow: hidden;
+ 
 }
-.dSpecifications table{
-  width: 90%;
-  background-color: blue;
-  display: flex;
+.dSpecifications table {
+  width: 100%;
+  table-layout: fixed;
+    border: 1px solid rgb(193, 191, 191);
+    border-collapse: collapse;
+  border-radius: 10px;
+}
+.dSpecifications td {
+  height: 70px;
+  padding-right:20px ;
+    border: 1px solid rgb(193, 191, 191);
+
 
 }
-.dSpecifications td :first-child{
-  width: 50%;
-  height: 50px;
+.dSpecifications tr {
+ font-family: shabnam;
+  font-size: 18px;
 }
-.dSpecifications tr:nth-child(odd){
-  background-color: rgb(214, 211, 211);
+.dSpecifications tr:nth-child(odd) {
+  background-color: rgb(237, 236, 236);
+   
 }
 .dSpecifications th {
-  width: 50%;
-  border:1px solid rgb(193, 191, 191);
+  border: 1px solid rgb(193, 191, 191);
+  text-align: start;
+  padding-right: 20px;
 }
