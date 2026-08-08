@@ -6,6 +6,7 @@ import logo from "../assets/pic/logo.jpeg";
 import { IoSearchSharp } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { IoMenuOutline } from "react-icons/io5";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { useBasket } from "../condex/Basketcondex";
 import Cart from "../pages/Cart";
@@ -68,6 +69,9 @@ const Header = () => {
             <MdOutlineShoppingCart />
             {countall>0 && <div className={style.tedadproduct}>{countall}</div>}
           </div>
+          <div className={style.hambermenu}>
+            <IoMenuOutline />
+          </div>  
         </div>
       </div>
       <div className={style.bottomdiv}>

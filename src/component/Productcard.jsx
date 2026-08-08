@@ -28,7 +28,7 @@ const Productcard = ({ product }) => {
   }, [product]);
   //----------------------------------------
   const todetailproduct =()=>{
-    navigate(`${ProductID}`)
+    navigate(`/product/${ProductID}`)
   }
   //----------------------------------------
   return (

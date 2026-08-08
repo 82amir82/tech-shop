@@ -38,7 +38,7 @@ const Mainpage = () => {
   },[])
   //------------------------------------
   return (
-    <>
+    <div className={style.parent}>
       <Slider />
       <div className={style.parentfeature}>
         <div className={style.dsupport}>
@@ -87,7 +87,7 @@ const Mainpage = () => {
           مشاهده همه
         </Link>
       </div>
-    </>
+    </div>
   )
 }
 
