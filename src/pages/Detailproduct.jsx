@@ -26,14 +26,12 @@ import { func_count } from "../service/myfunctions";
 // function reducer(state, action) {}
 
 const Detailproduct = () => {
-  // const [state, dispatch] = useReducer(reducer, initialArg );
   const params = useParams();
   const [product, setProduct] = useState("");
   const [demopic, setDemopic] = useState(pic1);
   const [newprice, setNewprice] = useState(1000);
   const [descriptionviwe, setDescriptionviwe] = useState(1);
   const [like, setLike] = useState(false);
-
   const {
     Category_ID,
     Description,

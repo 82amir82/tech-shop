@@ -79,16 +79,15 @@
   color: red;
 }
 .dbuy {
-  width: 50%;
+  width: 30%;
   height: 70px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0 20px;
-  /* background-color: red; */
 }
 .dlikef,
 .dliket {
-  width: 12%;
+  width: 23%;
   height: 100%;
   border: 1px solid rgb(193, 191, 191);
   display: flex;
@@ -106,7 +105,7 @@
   color: red;
 }
 .buttonbuy {
-  width: 50%;
+  width: 70%;
   height: 100%;
   background-color: blue;
   color: white;
@@ -125,13 +124,20 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin: 0 20px;
+ 
 }
 .dplus,
 .dmines,
 .dtrash svg {
   font-size: 28px;
   color: blue;
+}
+.dlikef:hover,
+.dliket:hover,
+.dplus:hover,
+.dmines:hover,
+.dtrash:hover {
+  background-color:rgb(228, 227, 227);
 }
 .numbers {
   width: 18%;
@@ -145,7 +151,7 @@
   font-size: 24px;
 }
 .productnumbers {
-  width: 50%;
+  width: 70%;
   height: 100%;
   display: flex;
   justify-content: space-between;

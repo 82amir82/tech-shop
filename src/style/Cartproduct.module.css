@@ -1,0 +1,34 @@
+.productdiv{
+    width: 85%;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    padding: 10px 0;
+}
+.productdiv img{
+    width: 10%;
+    height: 100%;
+}
+.productdiv p{
+    font-size: 24px;
+    width: 23%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+}
+.productdiv svg {
+    font-size: 28px;
+    color: blue;
+}
+.dcount{
+    width: 15%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(193, 191, 191); 
+    border-radius: 10px;
+    padding: 10px;
+}
