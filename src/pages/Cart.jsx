@@ -27,7 +27,7 @@ const Cart = ({ opencart, setOpencart }) => {
         </div>
         <div className={style.bottomdiv}>
           <p>جمع کل : </p>
-          <p>{state.total} تومان</p>
+          <p>{state.total.toLocaleString("fa-IR")} تومان</p>
         </div>
         <div className={style.buttondiv}>
           <button onClick={()=>{setOpencart(!opencart)}} className={style.butback}>افزون محصول جدید  </button>

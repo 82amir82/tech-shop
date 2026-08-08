@@ -33,7 +33,7 @@ const Cartproduct = ({product}) => {
         <p>{count}</p>
         <LuMinus onClick={()=>{dispatch({ type: "minus", payload: ProductID })}}/>
       </div>
-      <p>{Price}تومان </p>
+      <p>{Number(Price).toLocaleString("fa-IR")}تومان </p>
       
       <div>
         <GoTrash onClick={()=>{dispatch({ type: "delete", payload: ProductID })}}/>

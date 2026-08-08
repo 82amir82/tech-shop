@@ -93,8 +93,10 @@ const Detailproduct = () => {
                   <h5> {Discount}%</h5>
                 </div>
               )}
-              <h6> {newprice} تومان</h6>
-              <p>{Price} تومان</p>
+              <h6> {Number(newprice).toLocaleString("fa-IR")} تومان</h6>
+              {Discount > 0 && (
+                <p>{Number(Price).toLocaleString("fa-IR")} تومان</p>
+              )}
             </div>
             <div className={style.dinformation}>
               {Category_ID == 1 && (
