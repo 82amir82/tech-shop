@@ -45,10 +45,13 @@
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
+    grid-template-columns: repeat(4, 3fr);
+    gap: 10px;
     margin-top: 20px;
     border: none;
+}
+.dproduct > *{
+    min-height: 500px;
 }
 .dprice{
     width: 100%;

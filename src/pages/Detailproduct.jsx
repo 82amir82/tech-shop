@@ -3,10 +3,6 @@ import { useParams } from "react-router-dom";
 import { useReducer } from "react";
 import axios from "axios";
 import style from "../style/Detailproduct.module.css";
-import pic1 from "../assets/pic/logo.jpeg";
-import pic2 from "../assets/pic/logo.jpeg";
-import pic3 from "../assets/pic/logo.jpeg";
-import pic4 from "../assets/pic/logo.jpeg";
 //---------------------------------------
 import { FaHeart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
@@ -28,7 +24,6 @@ import { func_count } from "../service/myfunctions";
 const Detailproduct = () => {
   const params = useParams();
   const [product, setProduct] = useState("");
-  const [demopic, setDemopic] = useState(pic1);
   const [newprice, setNewprice] = useState(1000);
   const [descriptionviwe, setDescriptionviwe] = useState(1);
   const [like, setLike] = useState(false);
@@ -43,8 +38,12 @@ const Detailproduct = () => {
     CPU,
     RAM,
     Brand,
+    pic1,
+    pic2,
+    pic3,
+    pic4,
   } = product;
-
+  const [demopic, setDemopic] = useState("");
   const [state, dispatch] = useBasket();
   // console.log(dispatch);
   // console.log(state);
@@ -60,7 +59,10 @@ const Detailproduct = () => {
           `http://localhost:5000/product/${params.id}`,
         );
         setProduct(res.data);
-        // console.log("res", res.data);
+        // setDemopic(product.pic1);
+        // console.log(pic2);
+        // console.log(res.data.pic2)
+        console.log("res", res.data);
       } catch (err) {
         console.log("eror", err);
       }
@@ -71,6 +73,7 @@ const Detailproduct = () => {
   useEffect(() => {
     const x = Price - (Price * Discount) / 100;
     setNewprice(x);
+    setDemopic(pic1);
   }, [product]);
   //------------------------
   const changeDemopic = (pic) => {
@@ -88,12 +91,14 @@ const Detailproduct = () => {
           </div>
           <div>
             <div className={style.dprice}>
+              {/* <div className={style.dnewprice}> */}
               {Discount > 0 && (
                 <div className={style.dDiscount}>
                   <h5> {Discount}%</h5>
                 </div>
               )}
               <h6> {Number(newprice).toLocaleString("fa-IR")} تومان</h6>
+              {/* </div>   */}
               {Discount > 0 && (
                 <p>{Number(Price).toLocaleString("fa-IR")} تومان</p>
               )}
@@ -119,7 +124,7 @@ const Detailproduct = () => {
         </div>
         <div className={style.productpic}>
           <div className={style.largpic}>
-            <img src={demopic} alt="" />
+              {demopic && <img src={demopic} /> }
           </div>
           <div className={style.smallpic}>
             <img src={pic1} alt="" onClick={() => changeDemopic(pic1)} />

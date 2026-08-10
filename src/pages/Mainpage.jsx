@@ -1,10 +1,8 @@
 import React from 'react'
-
 //--------------------------------------
 import Header from '../component/Header'
 import Slider from '../component/Slider'
 import style from '../style/Mainpage.module.css'
-
 //--------------------------------------
 import { PiHeadsetLight } from "react-icons/pi";
 import { IoWalletOutline } from "react-icons/io5";
@@ -15,9 +13,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import Productcard from '../component/Productcard';
-
-
-
 
 //--------------------------------------
 const Mainpage = () => {
