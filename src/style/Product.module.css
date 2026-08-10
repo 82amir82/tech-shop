@@ -12,7 +12,7 @@
     height: auto;
 }
 .dleft{
-    width: 22%;
+    width: 23%;
     height: auto;
 }
 
@@ -45,7 +45,7 @@
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(4, 3fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     margin-top: 20px;
     border: none;
@@ -114,4 +114,46 @@
 }
 .dbrand input{
     width: 20px;
+}
+
+@media (max-width: 1200px) {
+   .dproduct{
+        grid-template-columns: repeat(3, 1fr);
+   }
+   .dright{
+    width: 70%;
+
+   }
+   .dleft{
+    width: 28%;
+   }
+}
+@media (max-width: 1000px) {
+   .dproduct{
+        grid-template-columns: repeat(2, 1fr);
+   }
+   .dright{
+    width: 65%;
+
+   }
+   .dleft{
+    width: 32%;
+   }
+}
+@media (max-width: 800px) {
+   .dproduct{
+        grid-template-columns: repeat(2, 1fr);
+   }
+   .dright{
+    width: 98%;
+
+   }
+   .dleft{
+    display: none;
+   }
+}
+@media (max-width: 600px) {
+   .dproduct{
+        grid-template-columns: repeat(1, 1fr);
+   }
 }

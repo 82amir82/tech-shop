@@ -137,6 +137,9 @@
     font-size: 32px;
 }
 @media (max-width: 1000px) {
+    .topdiv{
+        margin-bottom: 10px;
+    }
     .diconuser{
         display: none;
     }

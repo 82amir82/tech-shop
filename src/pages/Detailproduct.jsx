@@ -59,10 +59,7 @@ const Detailproduct = () => {
           `http://localhost:5000/product/${params.id}`,
         );
         setProduct(res.data);
-        // setDemopic(product.pic1);
-        // console.log(pic2);
-        // console.log(res.data.pic2)
-        console.log("res", res.data);
+        // console.log("res", res.data);
       } catch (err) {
         console.log("eror", err);
       }
