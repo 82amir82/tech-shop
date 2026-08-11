@@ -1,36 +1,97 @@
-.productdiv{
-    width: 85%;
-    height: 120px;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    align-items: center;
-    padding: 10px 0;
+.productdiv {
+  width: 90%;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  align-items: center;
 }
-.productdiv img{
-    width: 15%;
-    height: 100%;
-    border-radius: 10px;
-    box-shadow: 1px 1px 10px rgb(223, 222, 222);
+.rightdiv {
+  width: 42%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.productdiv p{
-    font-size: 24px;
-    width: 23%;
-    height: auto;
-    align-items: center;
-    text-align: center;
+.leftdiv {
+  width: 56%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.productdiv img {
+  width: 40%;
+  height: 120px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgb(223, 222, 222);
+}
+.productdiv p {
+  font-size: 24px;
+  width: 60%;
+  height: auto;
+  align-items: center;
+  text-align: center;
 }
 .productdiv svg {
-    font-size: 28px;
-    color: blue;
+  font-size: 28px;
+  color: blue;
 }
-.dcount{
-    width: 15%;
-    height: 60%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid rgb(193, 191, 191); 
-    border-radius: 10px;
-    padding: 10px;
+.dcount {
+  width: 30%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(193, 191, 191);
+  border-radius: 10px;
+  padding: 10px;
+}
+@media (max-width: 1000px) {
+  .productdiv {
+    width: 100%;
+    flex-direction: column;
+    height: 300px;
+    border-bottom: 1px solid rgb(193, 191, 191);
+    padding-right: 20px;
+  }
+  .productdiv img {
+    width: 60%;
+    height: 170px;
+  }
+  .rightdiv {
+    width: 100%;
+    height: 70%;
+  }
+  .leftdiv {
+    width: 90%;
+    height: 29%;
+    padding: 20px;
+  }
+  .dcount {
+    height: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .rightdiv {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 10px;
+  }
+  .productdiv img {
+    width: 80%;
+  }
+  .productdiv p {
+    width: 80%;
+  }
+  .productdiv {
+    padding: 0px;
+    height: 350px;
+  }
+  .leftdiv p{
+    font-size: 18px;
+  }
+  .dtrash{
+    display: none;
+  }
 }

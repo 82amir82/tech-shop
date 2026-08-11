@@ -121,7 +121,7 @@ const Detailproduct = () => {
         </div>
         <div className={style.productpic}>
           <div className={style.largpic}>
-              {demopic && <img src={demopic} /> }
+            {demopic && <img src={demopic} />}
           </div>
           <div className={style.smallpic}>
             <img src={pic1} alt="" onClick={() => changeDemopic(pic1)} />
@@ -183,28 +183,32 @@ const Detailproduct = () => {
       </div>
       <div className={style.middelmdiv}>
         <div className={style.parentfeature}>
-          <div className={style.dsupport}>
-            <PiHeadsetLight />
-            <div>
-              <h6>پشتبانی 24 ساعته</h6>
+          <div className={style.rightfeature}>
+            <div className={style.dsupport}>
+              <PiHeadsetLight />
+              <div>
+                <h6>پشتبانی 24 ساعته</h6>
+              </div>
+            </div>
+            <div className={style.dPayment}>
+              <IoWalletOutline />
+              <div>
+                <h6>پرداخت امن </h6>
+              </div>
             </div>
           </div>
-          <div className={style.dPayment}>
-            <IoWalletOutline />
-            <div>
-              <h6>پرداخت امن </h6>
+          <div className={style.leftfeature}>
+            <div className={style.dWarranty}>
+              <MdOutlineWatchLater />
+              <div>
+                <h6> ضمانت بازگشت کالا </h6>
+              </div>
             </div>
-          </div>
-          <div className={style.dWarranty}>
-            <MdOutlineWatchLater />
-            <div>
-              <h6> ضمانت بازگشت کالا </h6>
-            </div>
-          </div>
-          <div className={style.dpost}>
-            <MdOutlineLocalShipping />
-            <div>
-              <h6> ارسال رایگان </h6>
+            <div className={style.dpost}>
+              <MdOutlineLocalShipping />
+              <div>
+                <h6> ارسال رایگان </h6>
+              </div>
             </div>
           </div>
         </div>
