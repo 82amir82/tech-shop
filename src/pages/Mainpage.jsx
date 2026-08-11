@@ -16,13 +16,16 @@ import Productcard from '../component/Productcard';
 
 //--------------------------------------
 const Mainpage = () => {
-  const [product,setProduct]=useState([])
+  const [product,setProduct]=useState([]);
+  const [Sales,setSales]=useState([]);
   //------------------------------------
   useEffect(()=>{
     const fetchdata=async()=>{
       try{
         const res = await axios.get("http://localhost:5000/product?sort=1");
+        const res2 = await axios.get("http://localhost:5000/product?sort=4");
         setProduct(res.data);
+        setSales(res2.data);
       }
       catch(err){
         console.log(err.massege)
@@ -30,7 +33,7 @@ const Mainpage = () => {
     }
     fetchdata();
     // console.log(product)
-  },[])
+  },[product,Sales])
   //------------------------------------
   return (
     <div className={style.parent}>
@@ -69,7 +72,7 @@ const Mainpage = () => {
       </div>
       <div className={style.headertakhfif}>
         <h3>پیشنهادهای ویژه</h3>
-        <Link >
+        <Link to={"/product?sort=1"} >
           مشاهده همه
         </Link>
       </div>
@@ -77,10 +80,13 @@ const Mainpage = () => {
         {product.slice(0,4).map(item=><Productcard key={item.ProductID} product={item}/>)}
       </div>
       <div className={style.headertakhfif}>
-        <h3>پیشنهادهای ویژه</h3>
-        <Link >
+        <h3>پرفروش ترین ویژه</h3>
+        <Link to={"/product?sort=4"}>
           مشاهده همه
         </Link>
+      </div>
+       <div className={style.dtakhfif}>
+        {Sales.slice(0,4).map(item=><Productcard key={item.ProductID} product={item}/>)}
       </div>
     </div>
   )

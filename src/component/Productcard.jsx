@@ -34,7 +34,7 @@ const Productcard = ({ product }) => {
     <div className={style.maincard} onClick={todetailproduct}>
       <img src={pic1} alt={Product_Name} />
       <div className={style.info}>
-      <h3>{Product_Name}</h3>
+      <h3>{Product_Name.length > 20 ? "..." +Product_Name.slice(0,20): Product_Name }</h3>
       {Discount > 0 && (
         <>
           <h6>{Number(newprice).toLocaleString("fa-IR")} تومان</h6>
@@ -46,7 +46,7 @@ const Productcard = ({ product }) => {
       )}
       {Discount == 0 && (
         <>
-          <h6>{Price} تومان</h6>
+          <h6>{Number(Price).toLocaleString("fa-IR")} تومان</h6>
         </>
       )}
       </div>

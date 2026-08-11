@@ -25,7 +25,7 @@ const Product = () => {
     setCpu(searchparams.getAll("cpu"));
     setRam(searchparams.getAll("ram"));
     setPrice([
-      Number(searchparams.get("minorice") || 1000000),
+      Number(searchparams.get("minprice") || 1000000),
       Number(searchparams.get("maxprice") || 100000000),
     ]);
 
@@ -46,14 +46,6 @@ const Product = () => {
     }
 
     const fetchProduct = async () => {
-      if (!category) {
-        try {
-          const res = await axios.get("http://localhost:5000/product");
-          setProduct(res.data);
-        } catch (err) {
-          console.log("eror", err);
-        }
-      } else {
         try {
           const res = await axios.get(
             `http://localhost:5000/product?${searchparams.toString()}`,
@@ -62,7 +54,6 @@ const Product = () => {
         } catch (err) {
           console.log("eror", err);
         }
-      }
     };
     fetchProduct();
     // console.log(product) نمابش محصولات
@@ -160,6 +151,7 @@ const Product = () => {
                 <option value="1">پر تخفیف ترین</option>
                 <option value="2">ارزان ترین</option>
                 <option value="3">گران ترین</option>
+                <option value="4">پرفروش ترین</option>
               </select>
             </div>
           </div>
@@ -178,7 +170,7 @@ const Product = () => {
                 value={price}
                 onChange={priceChange}
                 valueLabelDisplay="auto"
-                min={0}
+                min={1000000}
                 max={100000000}
                 step={1000000}
               />
