@@ -1,0 +1,115 @@
+.back {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../assets/pic/backgrand.jpg");
+  display: flex;
+  align-items: center;
+  padding-right: 50px;
+}
+.viwe {
+  width: 45%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.menulogin {
+  width: 60%;
+  height: 10%;
+  display: flex;
+  text-align: center;
+}
+.selectmenu {
+  color: black !important;
+  border-bottom: 2px solid blue !important;
+}
+.menulogin p {
+  width: 50%;
+  height: 100%;
+  color: gray;
+  font-size: 24px;
+  border-bottom: 1px solid rgb(233, 233, 233);
+}
+.login {
+  width: 70%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  gap: 10px;
+}
+.login label {
+  font-size: 24px;
+}
+.login input {
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid rgb(233, 233, 233);
+  outline: none;
+  box-shadow: 1px 1px 10px rgb(228, 228, 228);
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-family: shabnam;
+}
+.login button {
+  height: 60px;
+  background-color: blue;
+  color: white;
+  border: none;
+  font-family: shabnam;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.err {
+  width: 400px;
+  height: 100px;
+  background-color: rgba(239, 7, 7, 0.99);
+  position: fixed;
+  top: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  right: 500px;
+  border-radius: 10px;
+}
+.err p {
+  font-size: 20px;
+  color: white;
+}
+.err h2 {
+    font-size: 24px;
+    color: white;
+}
+@media (max-width: 1000px) {
+   .back{
+    justify-content: center;
+    padding: 0;
+   }
+   .viwe{
+    width: 80%;
+   }
+    
+}
+@media (max-width: 600px) {
+   .back{
+    justify-content: center;
+    padding: 0;
+   }
+   .viwe{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+   }
+   .login{
+    width: 90%;
+   }
+   .menulogin{
+    width: 80%;
+   }
+    
+}
