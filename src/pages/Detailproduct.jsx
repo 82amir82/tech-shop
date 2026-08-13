@@ -17,6 +17,7 @@ import { GoTrash } from "react-icons/go";
 import { useBasket } from "../condex/Basketcondex";
 //--------------------------------------------
 import { func_count } from "../service/myfunctions";
+import { useLike } from "../condex/Likecondex";
 
 //---------------------------------------
 // function reducer(state, action) {}
@@ -26,7 +27,8 @@ const Detailproduct = () => {
   const [product, setProduct] = useState("");
   const [newprice, setNewprice] = useState(1000);
   const [descriptionviwe, setDescriptionviwe] = useState(1);
-  const [like, setLike] = useState(false);
+  const [like, setLike] = useState();
+
   const {
     Category_ID,
     Description,
@@ -45,6 +47,7 @@ const Detailproduct = () => {
   } = product;
   const [demopic, setDemopic] = useState("");
   const [state, dispatch] = useBasket();
+  const [listlike, setListlike] = useLike();
   // console.log(dispatch);
   // console.log(state);
   //--------------------------------------
@@ -71,7 +74,19 @@ const Detailproduct = () => {
     const x = Price - (Price * Discount) / 100;
     setNewprice(x);
     setDemopic(pic1);
+    setLike(listlike.some((item) => item.ProductID == ProductID));
   }, [product]);
+  //------------------------
+  useEffect(() => {
+    if (like) {
+      if (!listlike.some(item=>item.ProductID==ProductID))
+        setListlike([...listlike, product]);
+    } else {
+      const x = listlike.filter((item) => item.ProductID != ProductID);
+      // setListlike(x);
+    }
+    console.log(listlike);
+  }, [like]);
   //------------------------
   const changeDemopic = (pic) => {
     setDemopic(pic);

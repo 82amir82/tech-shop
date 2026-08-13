@@ -19,7 +19,7 @@ const Header = () => {
   const [state, dispatch] = useBasket();
   const { countall } = state;
   const [opencart, setOpencart] = useState(false);
-  const [search, setSearch] = useState(searchparams.get("search"));
+  const [search, setSearch] = useState(searchparams.get("search") || "");
   // console.log(countall);
 
   //----------------------------------------------
@@ -107,7 +107,7 @@ const Header = () => {
           <button onClick={() => changecategory("pc")}>لوازم کامپیوتر</button>
         </div>
       </div>
-      {opencart && <Cart opencart={opencart} setOpencart={setOpencart} />}
+      {opencart && <Cart opencart={opencart} setOpencart={setOpencart} data={"ali"}/>}
     </>
   );
 };
