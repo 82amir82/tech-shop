@@ -29,7 +29,7 @@ const Cart = ({ opencart, setOpencart }) => {
                 setShowcart(false);
               }}
             >
-              محصولات موردعلاقه شما{" "}
+              محصولات مورد علاقه شما{" "}
             </h1>
           </div>
 

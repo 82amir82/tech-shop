@@ -79,13 +79,13 @@ const Detailproduct = () => {
   //------------------------
   useEffect(() => {
     if (like) {
-      if (!listlike.some(item=>item.ProductID==ProductID))
+      if (!listlike.some((item) => item.ProductID == ProductID))
         setListlike([...listlike, product]);
     } else {
       const x = listlike.filter((item) => item.ProductID != ProductID);
-      // setListlike(x);
+      setListlike(x);
     }
-    console.log(listlike);
+    // console.log(listlike);
   }, [like]);
   //------------------------
   const changeDemopic = (pic) => {

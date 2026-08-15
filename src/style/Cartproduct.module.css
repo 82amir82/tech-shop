@@ -48,7 +48,7 @@
   padding: 10px;
 }
 .addcart{
-  width: 28%;
+  width: 31%;
   height: 38%;
   color: white;
   font-family: shabnam;
@@ -85,6 +85,11 @@
   .dcount {
     height: 100%;
   }
+  .addcart{
+    width: 50%;
+    height: 100%;
+    margin-left: 10px;
+  }
 }
 @media (max-width: 600px) {
   .rightdiv {
@@ -103,9 +108,10 @@
     height: 350px;
   }
   .leftdiv p{
-    font-size: 18px;
+    font-size: 14px;
   }
-  .dtrash{
-    display: none;
+  .addcart{
+    font-size: 10px;
   }
+  
 }
