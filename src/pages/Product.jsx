@@ -87,18 +87,17 @@ const Product = () => {
     if (category)
       resulte = resulte.filter(item => item.Category_ID == category);
     //-----------------brand-----------
-    console.log(brand);
+    // console.log(brand);
     if (brand.length > 0)
       resulte = resulte.filter(item => brand.includes(item.Brand));
     //----------------------------ram----------------
     if (ram.length > 0)
       resulte = resulte.filter(item => ram.includes(item.RAM));
     //----------------------------cpu----------------
-    console.log(cpu)
     if(cpu.length>0)
       resulte=resulte.filter(item=>cpu.includes(item.CPU));
 
-    console.log("aaa", resulte)
+    // console.log("aaa", resulte)
     setProduct(resulte);
 
   }, [searchparams]);
