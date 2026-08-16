@@ -33,7 +33,7 @@ const Mainpage = () => {
     }
     fetchdata();
     // console.log(product)
-  },[product,Sales])
+  },[])
   //------------------------------------
   return (
     <div className={style.parent}>
