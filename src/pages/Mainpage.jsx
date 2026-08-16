@@ -13,27 +13,40 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import Productcard from '../component/Productcard';
+import { useProduct } from '../condex/Productcondex';
 
 //--------------------------------------
 const Mainpage = () => {
   const [product,setProduct]=useState([]);
   const [Sales,setSales]=useState([]);
-  //------------------------------------
+
+  const listproduct = useProduct();
+
+  
+  // console.log(listproduct);
+  //-----------------------------------
   useEffect(()=>{
-    const fetchdata=async()=>{
-      try{
-        const res = await axios.get("http://localhost:5000/product?sort=1");
-        const res2 = await axios.get("http://localhost:5000/product?sort=4");
-        setProduct(res.data);
-        setSales(res2.data);
-      }
-      catch(err){
-        console.log(err.massege)
-      }
-    }
-    fetchdata();
-    // console.log(product)
-  },[product,Sales])
+    setProduct([...listproduct].sort((a,b)=>b.Discount - a.Discount));
+    setSales([...listproduct].sort((a,b)=>b.SalesCount - a.SalesCount));
+  },[listproduct])
+
+
+  //------------------------------------
+  // useEffect(()=>{
+  //   const fetchdata=async()=>{
+  //     try{
+  //       const res = await axios.get("http://localhost:5000/product?sort=1");
+  //       const res2 = await axios.get("http://localhost:5000/product?sort=4");
+  //       setProduct(res.data);
+  //       setSales(res2.data);
+  //     }
+  //     catch(err){
+  //       console.log(err.massege)
+  //     }
+  //   }
+  //   fetchdata();
+  //   // console.log(product)
+  // },[product,Sales])
   //------------------------------------
   return (
     <div className={style.parent}>

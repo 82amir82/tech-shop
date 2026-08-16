@@ -5,29 +5,38 @@ import { useParams, useSearchParams } from "react-router-dom";
 import style from "../style/Product.module.css";
 import Productcard from "../component/Productcard";
 import Slider from "@mui/material/Slider";
+import { useProduct } from "../condex/Productcondex";
 //----------------------------------------------
 const Product = () => {
-  const [product, setProduct] = useState([]);
+
   const [searchparams, setSearchparams] = useSearchParams();
   const [fcategory, setFcategory] = useState("");
-  const [sort, setSort] = useState();
-  const [price, setPrice] = useState([1000000, 100000000]);
-  const [brand, setBrand] = useState([]);
-  const [cpu, setCpu] = useState([]);
-  const [ram, setRam] = useState([]);
+  const [sort, setSort] = useState(String(searchparams.get("sort") || ""));
+  const [price, setPrice] = useState([
+    Number(searchparams.get("minprice") || 1000000),
+    Number(searchparams.get("maxprice") || 100000000),
+  ]);
+  const [ispricefilter, setIspricefilter] = useState(true);
+  const [brand, setBrand] = useState(searchparams.getAll("brand"));
+  const [cpu, setCpu] = useState(searchparams.getAll("cpu"));
+  const [ram, setRam] = useState(searchparams.getAll("ram"));
+  const listproduct = useProduct();
+  const [product, setProduct] = useState([]);
+
   // console.log(searchparams);
   //-----------------------------------
   useEffect(() => {
+    let resulte = listproduct;
     const category = searchparams.get("category");
     //------------------------------------
-    setBrand(searchparams.getAll("brand"));
-    setSort(String(searchparams.get("sort") || ""));
-    setCpu(searchparams.getAll("cpu"));
-    setRam(searchparams.getAll("ram"));
-    setPrice([
-      Number(searchparams.get("minprice") || 1000000),
-      Number(searchparams.get("maxprice") || 100000000),
-    ]);
+    // setBrand(searchparams.getAll("brand"));
+    // setSort(String(searchparams.get("sort") || ""));
+    // setCpu(searchparams.getAll("cpu"));
+    // setRam(searchparams.getAll("ram"));
+    // setPrice([
+    //   Number(searchparams.get("minprice") || 1000000),
+    //   Number(searchparams.get("maxprice") || 100000000),
+    // ]);
 
     //-----------------------------------
     // console.log(searchparams);
@@ -44,19 +53,54 @@ const Product = () => {
     if (!category) {
       setFcategory("");
     }
-
-    const fetchProduct = async () => {
-        try {
-          const res = await axios.get(
-            `http://localhost:5000/product?${searchparams.toString()}`,
-          );
-          setProduct(res.data);
-        } catch (err) {
-          console.log("eror", err);
-        }
-    };
-    fetchProduct();
+    //--------------------------------------
+    // const fetchProduct = async () => {
+    //     try {
+    //       const res = await axios.get(
+    //         `http://localhost:5000/product?${searchparams.toString()}`,
+    //       );
+    //       setProduct(res.data);
+    //     } catch (err) {
+    //       console.log("eror", err);
+    //     }
+    // };
+    // fetchProduct();
     // console.log(product) نمابش محصولات
+    //---------------------------------
+    // console.log(sort);
+    // console.log(resulte);
+    //--------------------------sort-----
+    if (sort == 1)
+      resulte = [...listproduct].sort((a, b) => b.Discount - a.Discount);
+    else if (sort == 2)
+      resulte = [...listproduct].sort((a, b) => a.Price - b.Price);
+    else if (sort == 3)
+      resulte = [...listproduct].sort((a, b) => b.Price - a.Price);
+    else if (sort == 4)
+      resulte = [...listproduct].sort((a, b) => b.SalesCount - a.SalesCount);
+    //-------------------------price filter-----
+    if (price[0] > 1000000 || price[1] < 100000000) {
+      resulte = resulte.filter(item => (item.Price > price[0] && item.Price < price[1]));
+    }
+    //---------------------------category------
+    // console.log(category)
+    if (category)
+      resulte = resulte.filter(item => item.Category_ID == category);
+    //-----------------brand-----------
+    console.log(brand);
+    if (brand.length > 0)
+      resulte = resulte.filter(item => brand.includes(item.Brand));
+    //----------------------------ram----------------
+    if (ram.length > 0)
+      resulte = resulte.filter(item => ram.includes(item.RAM));
+    //----------------------------cpu----------------
+    console.log(cpu)
+    if(cpu.length>0)
+      resulte=resulte.filter(item=>cpu.includes(item.CPU));
+
+    console.log("aaa", resulte)
+    setProduct(resulte);
+
   }, [searchparams]);
   //--------------------------------
   useEffect(() => {
@@ -69,10 +113,13 @@ const Product = () => {
 
   //----------------------------------------------
   const priceChange = (event, newValue) => {
+    console.log(event);
+    console.log(newValue);
     setPrice(newValue);
   };
 
-  const pricefilter = () => {
+  const pricefilter = (newvalue) => {
+    setIspricefilter(!ispricefilter);
     const param = new URLSearchParams(searchparams);
     param.set("minprice", price[0]);
     param.set("maxprice", price[1]);
@@ -96,6 +143,7 @@ const Product = () => {
       param.append("brand", item);
     });
     setSearchparams(param);
+    //-------------
   };
   //------------------------------------------------------
   const cpuChange = (e) => {
@@ -137,7 +185,11 @@ const Product = () => {
     setSearchparams(param);
   };
   //------------------------------------
-
+  // useEffect(() => {
+  //   const newlist = listproduct.filter(item => (item.Price > price[0] && item.Price < price[1]));
+  //   setProduct(newlist);
+  // }, [ispricefilter])
+  //-------------------------------------
   return (
     <>
       <h1 className={style.hcategory}>{fcategory}</h1>
