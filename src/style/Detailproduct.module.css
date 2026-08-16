@@ -5,33 +5,37 @@
   padding: 40px 20px;
 }
 .productpic {
-  width: 50%;
+  width: 60%;
   height: 600px;
   display: flex;
+  justify-content: space-between;
   margin-left: 30px;
 }
 .largpic {
-  width: 70%;
+  width: 82%;
   height: 100%;
 }
 .largpic img {
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
 .smallpic {
-  width: 28%;
+  width: 18%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 35px;
 }
 .smallpic img {
   width: 80%;
   height: 15%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgb(182, 182, 182);
 }
 .productdetail {
-  width: 40%;
+  width: 35%;
   display: flex;
   flex-direction: column;
   padding: 0 20px;
@@ -39,7 +43,6 @@
 .productdetail h1 {
   margin: 40px 0px;
 }
-
 .dDiscount {
   width: 60px;
   height: 30px;
@@ -55,14 +58,20 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 40px 0px;
+  margin: 20px 0 50px 0px;
+  text-align: center;
+}
+.dnewprice {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 .dprice h6 {
-  font-size: 30px;
+  font-size: 24px;
   color: rgb(11, 182, 11);
 }
 .dprice p {
-  font-size: 28px;
+  font-size: 20px;
   text-decoration: line-through;
 }
 .dinformation p {
@@ -124,10 +133,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
- 
 }
-.dplus,
-.dmines,
+.dplus svg,
+.dmines svg,
 .dtrash svg {
   font-size: 28px;
   color: blue;
@@ -137,7 +145,7 @@
 .dplus:hover,
 .dmines:hover,
 .dtrash:hover {
-  background-color:rgb(228, 227, 227);
+  background-color: rgb(228, 227, 227);
 }
 .numbers {
   width: 18%;
@@ -172,63 +180,37 @@
   border-radius: 10px;
   margin: 50px 0;
 }
-.dsupport {
-  width: 22%;
-  height: 100%;
+.rightfeature {
+  width: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
-.dsupport svg {
-  font-size: 40px;
-  margin-left: 20px;
-  color: blue;
-}
-.dsupport h6 {
-  font-size: 20px;
-}
-.dPayment {
-  width: 22%;
-  height: 100%;
+.leftfeature {
+  width: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
 }
-.dPayment svg {
-  font-size: 40px;
-  margin-left: 20px;
-  color: blue;
-}
-.dPayment h6 {
-  font-size: 20px;
-}
-.dWarranty {
-  width: 22%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.dWarranty svg {
-  font-size: 40px;
-  margin-left: 20px;
-  color: blue;
-}
-.dWarranty h6 {
-  font-size: 20px;
-}
+.dsupport,
+.dPayment,
+.dWarranty,
 .dpost {
-  width: 22%;
+  width: 49%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.dsupport svg,
+.dPayment svg,
+.dWarranty svg,
 .dpost svg {
   font-size: 40px;
   margin-left: 20px;
   color: blue;
 }
+.dsupport h6,
+.dPayment h6,
+.dWarranty h6,
 .dpost h6 {
   font-size: 20px;
 }
@@ -264,9 +246,10 @@
 }
 .dDescription {
   width: 100%;
-  height: 150px;
+  height: 160px;
   padding: 15px;
   border-top: 1px solid rgb(193, 191, 191);
+  text-align: justify;
 }
 .dDescription p {
   font-size: 18px;
@@ -279,32 +262,144 @@
   margin: 0 auto;
   margin-bottom: 50px;
   overflow: hidden;
- 
 }
 .dSpecifications table {
   width: 100%;
   table-layout: fixed;
-    border: 1px solid rgb(193, 191, 191);
-    border-collapse: collapse;
+  border: 1px solid rgb(193, 191, 191);
+  border-collapse: collapse;
   border-radius: 10px;
 }
 .dSpecifications td {
   height: 70px;
-  padding-right:20px ;
-    border: 1px solid rgb(193, 191, 191);
-
-
+  padding-right: 20px;
+  border: 1px solid rgb(193, 191, 191);
 }
 .dSpecifications tr {
- font-family: shabnam;
+  font-family: shabnam;
   font-size: 18px;
 }
 .dSpecifications tr:nth-child(odd) {
   background-color: rgb(237, 236, 236);
-   
 }
 .dSpecifications th {
   border: 1px solid rgb(193, 191, 191);
   text-align: start;
   padding-right: 20px;
+}
+@media (max-width: 1200px) {
+  .topdiv {
+    flex-direction: column;
+  }
+  .productdetail {
+    order: 2;
+    width: 60%;
+  }
+  .productpic {
+    order: 1;
+    width: 100%;
+  }
+  .dbuy {
+    width: 50%;
+  }
+  .dDescription {
+    height: 250px;
+  }
+  .menudescription {
+    width: 65%;
+  }
+}
+@media (max-width: 768px) {
+  .productpic {
+    flex-direction: column;
+  }
+  .largpic {
+    width: 100%;
+    height: 85%;
+  }
+  .smallpic {
+    flex-direction: row;
+    width: 100%;
+    height: 13%;
+    padding: 0 10px;
+    gap: 0px;
+    justify-content: space-between;
+  }
+  .smallpic img {
+    width: 23%;
+    height: 100%;
+  }
+  .productdetail {
+    width: 100%;
+  }
+  .dbuy {
+    width: 100%;
+    gap: 70px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+  }
+  .menudescription {
+    width: 100%;
+  }
+  .parentfeature {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 120px;
+  }
+
+  .rightfeature {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid rgb(193, 191, 191);
+  }
+  .leftfeature {
+    width: 100%;
+    padding: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .parentfeature {
+    height: 300px;
+  }
+  .rightfeature,
+  .leftfeature {
+    height: 49%;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+    align-items: center;
+    padding: 0;
+  }
+  .dDescription {
+    height: 400px;
+  }
+  .menudescription h6 {
+    font-size: 13px;
+  }
+  .dbuy {
+    gap: 10px;
+    padding: 0 10px;
+  }
+  .dprice h5 {
+    font-size: 14px;
+  }
+  .dprice h6 {
+    font-size: 16px;
+  }
+  .dprice p {
+    font-size: 13px;
+  }
+  .dDiscount {
+    width: 40px;
+  }
+  .productdetail h1 {
+    font-size: 26px;
+  }
+  .dsupport,
+  .dpost,
+  .dWarranty,
+  .dPayment {
+    width: 100%;
+  }
 }

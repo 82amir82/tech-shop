@@ -1,6 +1,5 @@
 .swiperset{
     width: 95%;
-    height: 520px;
     box-shadow: 1px 1px 10px rgb(231, 231, 231);
     margin-top: 10px;
     border-radius: 10px;
@@ -8,6 +7,6 @@
 .sliderimg img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 

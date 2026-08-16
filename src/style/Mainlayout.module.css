@@ -3,3 +3,14 @@
   width: 100%;
   margin: 0 auto;
 }
+.main{
+  padding-top: 170px;
+  
+}
+@media (max-width: 1000px) {
+   .main{
+  padding-top: 140px;
+  
+}
+   
+}

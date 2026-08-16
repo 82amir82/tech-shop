@@ -3,10 +3,6 @@ import { useParams } from "react-router-dom";
 import { useReducer } from "react";
 import axios from "axios";
 import style from "../style/Detailproduct.module.css";
-import pic1 from "../assets/pic/logo.jpeg";
-import pic2 from "../assets/pic/logo.jpeg";
-import pic3 from "../assets/pic/logo.jpeg";
-import pic4 from "../assets/pic/logo.jpeg";
 //---------------------------------------
 import { FaHeart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
@@ -21,6 +17,7 @@ import { GoTrash } from "react-icons/go";
 import { useBasket } from "../condex/Basketcondex";
 //--------------------------------------------
 import { func_count } from "../service/myfunctions";
+import { useLike } from "../condex/Likecondex";
 
 //---------------------------------------
 // function reducer(state, action) {}
@@ -28,10 +25,10 @@ import { func_count } from "../service/myfunctions";
 const Detailproduct = () => {
   const params = useParams();
   const [product, setProduct] = useState("");
-  const [demopic, setDemopic] = useState(pic1);
   const [newprice, setNewprice] = useState(1000);
   const [descriptionviwe, setDescriptionviwe] = useState(1);
-  const [like, setLike] = useState(false);
+  const [like, setLike] = useState();
+
   const {
     Category_ID,
     Description,
@@ -43,9 +40,14 @@ const Detailproduct = () => {
     CPU,
     RAM,
     Brand,
+    pic1,
+    pic2,
+    pic3,
+    pic4,
   } = product;
-
+  const [demopic, setDemopic] = useState("");
   const [state, dispatch] = useBasket();
+  const [listlike, setListlike] = useLike();
   // console.log(dispatch);
   // console.log(state);
   //--------------------------------------
@@ -71,7 +73,20 @@ const Detailproduct = () => {
   useEffect(() => {
     const x = Price - (Price * Discount) / 100;
     setNewprice(x);
+    setDemopic(pic1);
+    setLike(listlike.some((item) => item.ProductID == ProductID));
   }, [product]);
+  //------------------------
+  useEffect(() => {
+    if (like) {
+      if (!listlike.some((item) => item.ProductID == ProductID))
+        setListlike([...listlike, product]);
+    } else {
+      const x = listlike.filter((item) => item.ProductID != ProductID);
+      setListlike(x);
+    }
+    // console.log(listlike);
+  }, [like]);
   //------------------------
   const changeDemopic = (pic) => {
     setDemopic(pic);
@@ -88,13 +103,17 @@ const Detailproduct = () => {
           </div>
           <div>
             <div className={style.dprice}>
+              {/* <div className={style.dnewprice}> */}
               {Discount > 0 && (
                 <div className={style.dDiscount}>
                   <h5> {Discount}%</h5>
                 </div>
               )}
-              <h6> {newprice} تومان</h6>
-              <p>{Price} تومان</p>
+              <h6> {Number(newprice).toLocaleString("fa-IR")} تومان</h6>
+              {/* </div>   */}
+              {Discount > 0 && (
+                <p>{Number(Price).toLocaleString("fa-IR")} تومان</p>
+              )}
             </div>
             <div className={style.dinformation}>
               {Category_ID == 1 && (
@@ -117,7 +136,7 @@ const Detailproduct = () => {
         </div>
         <div className={style.productpic}>
           <div className={style.largpic}>
-            <img src={demopic} alt="" />
+            {demopic && <img src={demopic} />}
           </div>
           <div className={style.smallpic}>
             <img src={pic1} alt="" onClick={() => changeDemopic(pic1)} />
@@ -179,28 +198,32 @@ const Detailproduct = () => {
       </div>
       <div className={style.middelmdiv}>
         <div className={style.parentfeature}>
-          <div className={style.dsupport}>
-            <PiHeadsetLight />
-            <div>
-              <h6>پشتبانی 24 ساعته</h6>
+          <div className={style.rightfeature}>
+            <div className={style.dsupport}>
+              <PiHeadsetLight />
+              <div>
+                <h6>پشتبانی 24 ساعته</h6>
+              </div>
+            </div>
+            <div className={style.dPayment}>
+              <IoWalletOutline />
+              <div>
+                <h6>پرداخت امن </h6>
+              </div>
             </div>
           </div>
-          <div className={style.dPayment}>
-            <IoWalletOutline />
-            <div>
-              <h6>پرداخت امن </h6>
+          <div className={style.leftfeature}>
+            <div className={style.dWarranty}>
+              <MdOutlineWatchLater />
+              <div>
+                <h6> ضمانت بازگشت کالا </h6>
+              </div>
             </div>
-          </div>
-          <div className={style.dWarranty}>
-            <MdOutlineWatchLater />
-            <div>
-              <h6> ضمانت بازگشت کالا </h6>
-            </div>
-          </div>
-          <div className={style.dpost}>
-            <MdOutlineLocalShipping />
-            <div>
-              <h6> ارسال رایگان </h6>
+            <div className={style.dpost}>
+              <MdOutlineLocalShipping />
+              <div>
+                <h6> ارسال رایگان </h6>
+              </div>
             </div>
           </div>
         </div>
