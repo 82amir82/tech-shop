@@ -5,29 +5,37 @@ import { useParams, useSearchParams } from "react-router-dom";
 import style from "../style/Product.module.css";
 import Productcard from "../component/Productcard";
 import Slider from "@mui/material/Slider";
+import { useProduct } from "../condex/Productcondex";
 //----------------------------------------------
 const Product = () => {
   const [product, setProduct] = useState([]);
   const [searchparams, setSearchparams] = useSearchParams();
   const [fcategory, setFcategory] = useState("");
-  const [sort, setSort] = useState();
-  const [price, setPrice] = useState([1000000, 100000000]);
-  const [brand, setBrand] = useState([]);
-  const [cpu, setCpu] = useState([]);
-  const [ram, setRam] = useState([]);
+  const [sort, setSort] = useState(String(searchparams.get("sort") || ""));
+  const [price, setPrice] = useState([
+    Number(searchparams.get("minprice") || 1000000),
+    Number(searchparams.get("maxprice") || 100000000),
+  ]);
+  const [brand, setBrand] = useState(searchparams.getAll("brand"));
+  const [cpu, setCpu] = useState(searchparams.getAll("cpu"));
+  const [ram, setRam] = useState(searchparams.getAll("ram"));
+  const listproduct = useProduct();
+  // console.log(listproduct);
   // console.log(searchparams);
   //-----------------------------------
   useEffect(() => {
+    let resulte = listproduct;
+
     const category = searchparams.get("category");
     //------------------------------------
-    setBrand(searchparams.getAll("brand"));
-    setSort(String(searchparams.get("sort") || ""));
-    setCpu(searchparams.getAll("cpu"));
-    setRam(searchparams.getAll("ram"));
-    setPrice([
-      Number(searchparams.get("minprice") || 1000000),
-      Number(searchparams.get("maxprice") || 100000000),
-    ]);
+    // setBrand(searchparams.getAll("brand"));
+    // setSort(String(searchparams.get("sort") || ""));
+    // setCpu(searchparams.getAll("cpu"));
+    // setRam(searchparams.getAll("ram"));
+    // setPrice([
+    //   Number(searchparams.get("minprice") || 1000000),
+    //   Number(searchparams.get("maxprice") || 100000000),
+    // ]);
 
     //-----------------------------------
     // console.log(searchparams);
@@ -45,18 +53,51 @@ const Product = () => {
       setFcategory("");
     }
 
-    const fetchProduct = async () => {
-        try {
-          const res = await axios.get(
-            `http://localhost:5000/product?${searchparams.toString()}`,
-          );
-          setProduct(res.data);
-        } catch (err) {
-          console.log("eror", err);
-        }
-    };
-    fetchProduct();
+    // const fetchProduct = async () => {
+    //     try {
+    //       const res = await axios.get(
+    //         `http://localhost:5000/product?${searchparams.toString()}`,
+    //       );
+    //       setProduct(res.data);
+    //     } catch (err) {
+    //       console.log("eror", err);
+    //     }
+    // };
+    // fetchProduct();
     // console.log(product) نمابش محصولات
+
+    //--------------------------sort-----
+    if (sort == 1)
+      resulte = [...listproduct].sort((a, b) => b.Discount - a.Discount);
+    else if (sort == 2)
+      resulte = [...listproduct].sort((a, b) => a.Price - b.Price);
+    else if (sort == 3)
+      resulte = [...listproduct].sort((a, b) => b.Price - a.Price);
+    else if (sort == 4)
+      resulte = [...listproduct].sort((a, b) => b.SalesCount - a.SalesCount);
+    //-------------------------price filter-----
+    if (price[0] > 1000000 || price[1] < 100000000) {
+      resulte = resulte.filter(
+        (item) => item.Price > price[0] && item.Price < price[1],
+      );
+    }
+    //---------------------------category------
+    // console.log(category)
+    if (category)
+      resulte = resulte.filter((item) => item.Category_Name == category);
+    //-----------------brand-----------
+    // console.log(brand);
+    if (brand.length > 0)
+      resulte = resulte.filter((item) => brand.includes(item.Brand));
+    //----------------------------ram----------------
+    if (ram.length > 0)
+      resulte = resulte.filter((item) => ram.includes(item.RAM));
+    //----------------------------cpu----------------
+    if (cpu.length > 0)
+      resulte = resulte.filter((item) => cpu.includes(item.CPU));
+
+    // console.log("aaa", resulte)
+    setProduct(resulte);
   }, [searchparams]);
   //--------------------------------
   useEffect(() => {
@@ -156,9 +197,10 @@ const Product = () => {
             </div>
           </div>
           <div className={style.dproduct}>
-            {product.length > 0 && product.map((item) => (
-              <Productcard key={item.ProductID} product={item} />
-            ))}
+            {product.length > 0 &&
+              product.map((item) => (
+                <Productcard key={item.ProductID} product={item} />
+              ))}
           </div>
         </div>
         <div className={style.dleft}>

@@ -25,6 +25,7 @@ const Likeproduct = ({ product }) => {
   useEffect(() => {
     setIncart(state.listbasket.some(item=>item.ProductID==ProductID))
   }, [product]);
+  
   const addcart =() => { 
    dispatch({ type: "add", payload: product });
    setIncart(true);

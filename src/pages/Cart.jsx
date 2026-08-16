@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../style/Cart.module.css";
 import { useBasket } from "../condex/Basketcondex";
 import { useLike } from "../condex/Likecondex";
@@ -9,7 +9,7 @@ const Cart = ({ opencart, setOpencart }) => {
   const [state, dispatch] = useBasket();
   const [listlike, setListlike] = useLike();
   const [showcart, setShowcart] = useState(true);
-
+  
   return (
     <div className={style.back}>
       <div className={style.dcart}>

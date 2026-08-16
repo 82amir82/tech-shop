@@ -18,6 +18,7 @@ import { useBasket } from "../condex/Basketcondex";
 //--------------------------------------------
 import { func_count } from "../service/myfunctions";
 import { useLike } from "../condex/Likecondex";
+import { useProduct } from "../condex/Productcondex";
 
 //---------------------------------------
 // function reducer(state, action) {}
@@ -48,6 +49,7 @@ const Detailproduct = () => {
   const [demopic, setDemopic] = useState("");
   const [state, dispatch] = useBasket();
   const [listlike, setListlike] = useLike();
+  const listproduct=useProduct();
   // console.log(dispatch);
   // console.log(state);
   //--------------------------------------
@@ -56,18 +58,20 @@ const Detailproduct = () => {
   // console.log(params.id);
   //--------------------------------------
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await axios.get(
-          `http://localhost:5000/product/${params.id}`,
-        );
-        setProduct(res.data);
-        // console.log("res", res.data);
-      } catch (err) {
-        console.log("eror", err);
-      }
-    };
-    fetchProduct();
+    // const fetchProduct = async () => {
+    //   try {
+    //     const res = await axios.get(
+    //       `http://localhost:5000/product/${params.id}`,
+    //     );
+    //     setProduct(res.data);
+    //     // console.log("res", res.data);
+    //   } catch (err) {
+    //     console.log("eror", err);
+    //   }
+    // };
+    // fetchProduct();
+    //----------------------------------
+    setProduct(listproduct.find(item=>item.ProductID==params.id));
   }, [params]);
   //------------------
   useEffect(() => {

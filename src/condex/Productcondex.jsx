@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { createContext, useContext, useState } from "react";
+import {data} from './Data'
 
-const Productcondex = () => {
+const product = createContext();
+
+const Productcondex = ({ children }) => {
+  const listproduct =data;
   return (
-    <div>Productcondex</div>
-  )
-}
+    <product.Provider value={ listproduct }>{children}</product.Provider>
+  );
+};
 
-export default Productcondex
+const useProduct = () => {
+  const listproduct=useContext(product);
+
+  return listproduct;
+};
+export {useProduct}
+export default Productcondex;
