@@ -28,17 +28,17 @@ const Slider = () => {
     loop
     >
         <SwiperSlide className={style.sliderimg}>
-            <Link to='product/laptop'>
+            <Link to='/product?category=laptop'>
                 <img src={laptopslider} alt="Laptop" />
             </Link>
         </SwiperSlide>
         <SwiperSlide className={style.sliderimg}>
-            <Link to='product/mobile'>
+            <Link to='/product?category=mobile'>
                 <img src={mobileslider} alt="mobile" />
             </Link>
         </SwiperSlide>
         <SwiperSlide className={style.sliderimg}>
-            <Link to='product/pc'>
+            <Link to='/product?category=pc'>
                 <img src={pcslider} alt="pc" />
             </Link>
         </SwiperSlide>
