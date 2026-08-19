@@ -181,7 +181,7 @@ const Product = () => {
 
   return (
     <>
-      <h1 className={style.hcategory}>{fcategory}</h1>
+      {fcategory && <h1 className={style.hcategory}>{fcategory}</h1>}
       <div className={style.back}>
         <div className={style.dright}>
           <div className={style.dfilter}>

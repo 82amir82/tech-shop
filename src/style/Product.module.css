@@ -1,11 +1,13 @@
 .hcategory{
     font-size: 48px;
-    padding: 30px;
+    padding: 15px 40px;
+    
 }
 .back{
     width: 100%;
     display: flex;
     justify-content: space-around ;
+    margin-top: 10px;
 }
 .dright{
     width: 75%;

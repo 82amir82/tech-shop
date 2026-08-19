@@ -1,0 +1,58 @@
+.back{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 1001;
+    direction: ltr;
+    inset: 0;
+}
+.menu{
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    padding: 50px;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.dcategorytitle{
+    height: 10%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dabout,
+.dmainpage{
+    height: 10%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dabout p,
+.dcategorytitle p,
+.dmainpage p{
+    font-size: 28px;
+}
+.dabout svg,
+.dmainpage svg{
+    font-size: 30px;
+    color: blue;
+}
+.dcategorytitle svg{
+    font-size: 20px;
+        color: blue;
+
+}
+.dcategory{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 30px;
+}
+.dcategory p{
+    font-size: 24px;
+}

@@ -10,6 +10,7 @@ import { IoMenuOutline } from "react-icons/io5";
 import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { useBasket } from "../condex/Basketcondex";
 import Cart from "../pages/Cart";
+import Hambermenu from "./Hambermenu";
 
 //-------------------------------------------
 
@@ -20,10 +21,13 @@ const Header = () => {
   const { countall } = state;
   const [opencart, setOpencart] = useState(false);
   const [search, setSearch] = useState(searchparams.get("search") || "");
+  const [showhambermenu,setShowhambermenu]=useState(false);
+
   // console.log(countall);
 
   //----------------------------------------------
   const changecategory = (category) => {
+    setShowhambermenu(false)
     const scategory = searchparams.get("category");
     const param = new URLSearchParams(searchparams);
     if (category != scategory) {
@@ -94,7 +98,7 @@ const Header = () => {
                 <div className={style.tedadproduct}>{countall}</div>
               )}
             </div>
-            <div className={style.hambermenu}>
+            <div className={style.hambermenu} onClick={()=>{setShowhambermenu(!showhambermenu)}}>
               <IoMenuOutline />
             </div>
           </div>
@@ -108,6 +112,7 @@ const Header = () => {
         </div>
       </div>
       {opencart && <Cart opencart={opencart} setOpencart={setOpencart} data={"ali"}/>}
+      {showhambermenu && <Hambermenu setShowhambermenu={setShowhambermenu} changecategory={changecategory}/>}
     </>
   );
 };
