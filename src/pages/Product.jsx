@@ -27,6 +27,7 @@ const Product = () => {
     let resulte = listproduct;
 
     const category = searchparams.get("category");
+    const search = String(searchparams.get("search") || "")
     //------------------------------------
     // setBrand(searchparams.getAll("brand"));
     // setSort(String(searchparams.get("sort") || ""));
@@ -75,6 +76,9 @@ const Product = () => {
       resulte = [...listproduct].sort((a, b) => b.Price - a.Price);
     else if (sort == 4)
       resulte = [...listproduct].sort((a, b) => b.SalesCount - a.SalesCount);
+    //--------------------------search--------------
+    if(search)
+      resulte=resulte.filter(item=>item.Product_Name.toLowerCase().includes(search))
     //-------------------------price filter-----
     if (price[0] > 1000000 || price[1] < 100000000) {
       resulte = resulte.filter(
@@ -198,7 +202,7 @@ const Product = () => {
           </div>
           <div className={style.dproduct}>
             {product.length > 0 &&
-              product.map((item) => (
+              product.slice(0,16).map((item) => (
                 <Productcard key={item.ProductID} product={item} />
               ))}
           </div>

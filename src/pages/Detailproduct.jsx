@@ -81,9 +81,12 @@ const Detailproduct = () => {
     setLike(listlike.some((item) => item.ProductID == ProductID));
   }, [product]);
   //------------------------
+  useEffect(()=>{
+    setLike(listlike.some((item) => item.ProductID == ProductID));
+  },[listlike])
+  //------------------------
   useEffect(() => {
     if (like) {
-      if (!listlike.some((item) => item.ProductID == ProductID))
         setListlike([...listlike, product]);
     } else {
       const x = listlike.filter((item) => item.ProductID != ProductID);

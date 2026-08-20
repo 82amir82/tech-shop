@@ -46,14 +46,14 @@ const Header = () => {
     }
     navigate(`/product?${param.toString()}`);
   };
-  useEffect(() => {
+  // useEffect(() => {
     // setSearch(searchparams.get("search")) 
     if (opencart) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  });
+  // });
   const searching =() => {
     const param = new URLSearchParams(searchparams);
     if(search){
